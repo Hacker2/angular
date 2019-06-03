@@ -1,0 +1,51 @@
+<!--The content below is only a placeholder and can be replaced.-->
+Welcome to {{ title }}!
+
+<div [ngClass]="title" >
+Hello, World.
+</div>
+<span [ngStyle]="getStyle()">first</span>
+
+<div *ngIf="getTrue()" >
+This is true
+</div>
+<div *ngIf="getFalse()" >
+This is false
+</div>
+<div *ngIf="5 > 4" >
+5 > 4
+</div>
+<div *ngIf="5 < 4" >
+5 < 4
+</div>
+
+<div [ngSwitch]="getNumber()">
+<span *ngSwitchCase="1">one</span>
+<span *ngSwitchCase="2">two</span>
+<span *ngSwitchCase="3">three</span>
+<span *ngSwitchDefault>This is the default</span>
+</div>
+
+<div *ngFor='let item of getArray();let i =index;let odd = odd; let even = even;let first = first; let last = last;'>
+<div>is first = {{first}} is last = {{last}} is odd = {{odd}} is even = {{even}} {{i}} = {{item}}</div>
+</div>
+
+
+<ng-template #myTemplate >
+<b>Repeated Content</b>
+</ng-template>
+<ng-template [ngTemplateOutlet]="myTemplate"></ng-template>
+some other data
+<ng-template [ngTemplateOutlet]="myTemplate"></ng-template>
+
+<ng-template #myTemplate2 let-text="title" >
+<b>Repeated Content {{text}}</b>
+</ng-template>
+<ng-template [ngTemplateOutlet]="myTemplate2" [ngTemplateOutletContext]="{title: 'Header'}"></ng-template>
+some other data
+<ng-template [ngTemplateOutlet]="myTemplate2" [ngTemplateOutletContext]="{title: 'Footer'}"></ng-template>
+
+
+<div >
+{{getFloor(4.5)}}
+</div>

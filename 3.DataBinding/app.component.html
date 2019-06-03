@@ -1,0 +1,58 @@
+<!--The content below is only a placeholder and can be replaced.-->
+Welcome to {{ title }}!
+
+<div [ngClass]="title" >
+Hello, World.
+</div>
+<div [ngClass]="getClasses()" >
+Hello, World.
+</div>
+<div [ngClass]="getClasses() + 'hello'" >
+Hello, World.
+</div>
+<div ngClass="getClasses() + 'hello'" >
+Hello, World.
+</div>
+<div class="getClasses() + 'hello'" >
+Hello, World.
+</div>
+[target]="expr"
+{{expression}}
+(target) ="expr"
+[(target)] ="expr"
+<div [textContent]="'Name: ' + title" >
+</div>
+<div>
+Name: {{title}}
+</div>
+<div [ngClass]="getClasses()?.name || 'none'" >
+{{getClasses()?.name || 'None'}}
+</div>
+<div [attr.title]="title" >
+hello
+</div>
+
+[class]="expr"
+[class.myClass]="expr"
+[ngClass]="map"
+
+<div [class]="getClasses()" >
+class
+</div>
+<div [class.try]="getTrue()" >
+class.try
+</div>
+<div [class.try]="getFalse()" >
+class.try
+</div>
+<div [ngClass]="getClassMap()" >
+ngClass
+</div>
+
+[style.myStyle]="expr"
+[style.myStyle.units]="expr"
+[ngStyle]="map"
+
+<span [style.fontSize]="fontSizeWithUnits">first</span>
+<span [style.fontSize.px]="fontSizeWithoutUnits">second</span>
+<span [ngStyle]="getStyles()">first</span>
