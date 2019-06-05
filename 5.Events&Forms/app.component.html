@@ -1,0 +1,100 @@
+<div> mouse over on: {{selectedValue || '(None)'}}</div>
+<div *ngFor="let item of getArray(); let i = index">
+  <div (mouseover)="selectedValue=i + 1">item</div>
+</div>
+
+<div> mouse over on: {{selected2 || '(None)'}}</div>
+<div *ngFor="let item of getArray(); let i = index">
+  <div (mouseover)="setSelected(i)">item</div>
+</div>
+
+<div>Text was entered: {{entered || '(None)'}}</div>
+<input (input)="entered=$event.target.value" />
+
+<div>Selected Product: {{product.value || '(None)'}}</div>
+<div *ngFor="let item of getArray(); let i = index">
+  <div (mouseover)="product.value=item">item</div>
+</div>
+<input #product (input)="false" />
+
+<div>Key pressed: {{vl || '(None)'}}</div>
+<input #kp (keyup)="vl=kp.value"  />
+
+<div>Key pressed: {{vl2 || '(None)'}}</div>
+<input #kp2 (keyup.enter)="vl2=kp2.value"  /><br/>
+
+<input (input)="enteredValue=$event.target.value" [value]="enteredValue || ''" />
+<input (input)="enteredValue=$event.target.value" [value]="enteredValue || ''" /><br/>
+
+<input [(ngModel)]="enteredValue2" />
+<input [(ngModel)]="enteredValue2" /><br/>
+
+<input [(ngModel)]="newProduct.name" />
+<input [(ngModel)]="newProduct.price" />
+<button (click)="addProduct(newProduct)">Create</button>
+
+<form novalidate (ngSubmit)="addProduct(newProduct2)" >
+<input name='name' required minlength='3' pattern='^[A-Za-z]+$' [(ngModel)]="newProduct2.name" />
+<input name='price' [(ngModel)]="newProduct2.price" />
+<button type='submit'>Create</button>
+</form>
+
+<form novalidate (ngSubmit)="addProduct(newProduct3)" >
+<input #name="ngModel" name='name' required minlength='3' pattern='^[A-Za-z]+$' [(ngModel)]="newProduct3.name" />
+<input name='price' [(ngModel)]="newProduct3.price" />
+<button type='submit'>Create</button>
+<div *ngIf="name.dirty && name.invalid">
+<div *ngIf="name.errors?.required">product name is missing</div>
+<div *ngIf="name.errors?.pattern">Only letters</div>
+<div *ngIf="name.errors?.minlength">Min length is {{name.errors.minlength.requiredLength}}</div>
+</div><br/>
+{{name.path}}<br/>
+{{name.valid}}<br/>
+{{name.invalid}}<br/>
+{{name.pristine}}<br/>
+{{name.dirty}}<br/>
+{{name.touched}}<br/>
+{{name.untouched}}<br/>
+{{name.errors?.required}}<br/>
+{{name.errors?.minlength?.requiredLength}}<br/>
+{{name.errors?.minlength?.actualLength}}<br/>
+{{name.errors?.pattern?.requiredPattern}}<br/>
+{{name.errors?.pattern?.actualValue}}<br/>
+{{name.value}}<br/>
+</form>
+
+
+<form novalidate (ngSubmit)="addProduct(newProduct4)" >
+<input #name="ngModel" name='name' required minlength='3' pattern='^[A-Za-z]+$' [(ngModel)]="newProduct4.name" />
+<input name='price' [(ngModel)]="newProduct4.price" />
+<button type='submit'>Create</button>
+<div *ngIf="name.dirty && name.invalid">
+<div *ngFor="let error of getValidationMessages(name)">
+{{error}}
+</div>
+</div><br/>
+</form>
+
+<form novalidate #form="ngForm" (ngSubmit)="submitForm(form)" >
+<div *ngIf="formSubmitted && form.invalid">
+Form has invalid values
+
+<div *ngFor="let error of getFormValidationMessages(form)">
+{{error}}
+</div>
+
+</div>
+<input #name="ngModel" name='name' required minlength='3' pattern='^[A-Za-z]+$' [(ngModel)]="newProduct5.name" />
+<input name='price' [(ngModel)]="newProduct5.price" />
+<button type='submit'
+
+[disabled]="formSubmitted && form.invalid"
+
+>Create</button>
+<div *ngIf="formSubmitted && name.invalid">
+<div *ngFor="let error of getValidationMessages(name)">
+{{error}}
+</div>
+</div><br/>
+</form>
+
