@@ -1,0 +1,8 @@
+<div>{{clr}}</div>
+<div [my-attr]='clr' color='red' >test</div>
+<button (click)='changeColor()' >click</button>
+<div [my-attr]='clr' color='red' (my-name)="clr=$event">test</div>
+
+<input [myModel]="clr" (myModelChange)="clr=$event" #myModel="myModel" />
+<input [(myModel)]="clr"  />
+<div>{{myModel.name}}</div>
