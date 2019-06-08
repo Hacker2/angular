@@ -10,7 +10,7 @@ export class MyIfDirective {
   expressionResult: boolean;
 
   ngOnChanges(changes: { [property: string]: SimpleChange }) {
-    if (changes["expressionResult"].currentValue()) {
+    if (changes["expressionResult"].currentValue) {
       this.container.clear();
     } else {
       this.container.createEmbeddedView(this.template);

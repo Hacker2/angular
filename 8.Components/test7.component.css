@@ -1,0 +1,6 @@
+div {
+  color: green;
+}
+:host {
+  font-size: 30px;
+}

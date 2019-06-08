@@ -1,0 +1,17 @@
+<div (click)='changeShow()'>{{clr}}</div>
+
+<ng-template [myIf]="show">
+  <div>hello world</div>
+</ng-template>
+
+<div *myIf='show'>gotten tag</div>
+
+<ng-template [myFor]="arr" let-item let-index='index' let-first='first'>
+  <div>{{item}} index is {{index}} is first {{first}}</div>
+</ng-template>
+
+<ul>
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</ul>

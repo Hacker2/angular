@@ -2,17 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MyIfDirective } from './myif.directive';
-import { IteratorDirective } from './iterator.directive';
+import { CustomPipe } from "./custom.pipe";
+import { Custom2Pipe } from "./custom2.pipe";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyIfDirective,
-    IteratorDirective
+    CustomPipe,
+    Custom2Pipe,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   bootstrap: [AppComponent]
 })

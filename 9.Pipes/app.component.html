@@ -1,0 +1,19 @@
+<div>price is {{price | currency:"USD":'symbol'}}</div>
+<div>price is {{price | customPipe:"USD"}}</div>
+<div>price is {{price | customPipe:"USD" | currency:"USD":'symbol'}}</div>
+<div (click)='addNumber()'>add number {{arr | custom2Pipe}}</div>
+
+<div>price is {{price | currency:"USD":'symbol':'3.1-2'}}</div>
+
+<div>percent is {{perc | percent}}</div>
+
+<div>date is {{date | date}}</div>
+<div>date is {{date | date:'shortDate'}}</div>
+<div>date is {{date | date:'mediumDate'}}</div>
+<div>date is {{date | date:'fullDate'}}</div>
+<div>date is {{date | date:'y MMMM EEEE d'}}</div>
+
+<div>name is {{nm | uppercase}}</div>
+<div>name is {{nm | lowercase}}</div>
+
+<div>Object is {{jsn | json}}</div>

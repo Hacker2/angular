@@ -9,10 +9,13 @@ export class AppComponent {
   changeColor() {
     this.clr = 'red';
   }
-  showComponent(): boolean {
-    return false;
+  show: boolean = false;
+  changeShow() {
+   this.show = !this.show;
+   this.arr.push(0);
   }
-  getArray(): number[] {
-    return [1,2,3];
-  }
+  arr: number[] = [1,2,3]
+  /*getArray(): number[] {
+    return this.arr;
+  }*/
 }
