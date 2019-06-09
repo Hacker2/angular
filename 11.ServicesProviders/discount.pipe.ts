@@ -1,5 +1,5 @@
 import { Pipe, Injectable, Inject } from "@angular/core";
-import { DiscountService } from "./discount.service";
+import { DiscountService, DISK_SERVICE } from "./discount.service";
 
 @Pipe({
  name: "discount",
@@ -7,7 +7,8 @@ import { DiscountService } from "./discount.service";
 })
 export class MyDiscountPipe {
   //constructor(private discount: DiscountService) { }
-  constructor(@Inject("disc") private discount: DiscountService) { }
+  //constructor(@Inject("disc") private discount: DiscountService) { }
+  constructor(@Inject(DISK_SERVICE) private discount: DiscountService) { }
   //constructor(@Inject("disc") private discount: DiscountService[]) { }
   transform(price: number): number {
     return this.discount.applyDiscount(price);

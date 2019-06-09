@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { MyDiscountDisplayComponent } from "./discountDisplay.component";
 import { MyDiscountEditorComponent } from "./discountEditor.component";
-import { DiscountService, DoubleDiscountService } from "./discount.service";
+import { DiscountService, DoubleDiscountService, DISK_SERVICE } from "./discount.service";
 import { MyDiscountPipe } from "./discount.pipe";
 
 //let disc = new DoubleDiscountService();
@@ -33,8 +33,9 @@ import { MyDiscountPipe } from "./discount.pipe";
              disc.discount = 30;
              return disc;
   }}],*/
-  providers: [{provide: 'test', useClass: DiscountService},
-              {provide: 'disc', useExisting: 'test'}],
+  /*providers: [{provide: 'test', useClass: DiscountService},
+              {provide: 'disc', useExisting: 'test'}],*/
+  providers: [{provide: DISK_SERVICE, useClass: DiscountService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

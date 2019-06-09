@@ -1,4 +1,7 @@
 import { Injectable } from "@angular/core";
+import { InjectionToken } from "@angular/core";
+
+export const DISK_SERVICE = new InjectionToken("discServ");
 
 @Injectable()
 export class DiscountService {

@@ -1,5 +1,5 @@
 import { Component, Input, Inject, Host, SkipSelf } from "@angular/core";
-import { DiscountService, DoubleDiscountService } from "./discount.service";
+import { DiscountService, DoubleDiscountService, DISK_SERVICE } from "./discount.service";
 
 @Component({
   selector: "myDiscountEditor",
@@ -17,7 +17,8 @@ export class MyDiscountEditorComponent {
   //constructor(@Inject("disc") private discounter: DiscountService[]) { }
   //constructor(@Inject("disc2") private discounter: DiscountService) { }
   //constructor(@Inject("disc2") @Host() private discounter: DiscountService) { }
-  constructor(@Inject("disc") @SkipSelf() private discounter: DiscountService) { }
+  //constructor(@Inject("disc") @SkipSelf() private discounter: DiscountService) { }
+  constructor(@Inject(DISK_SERVICE) private discounter: DiscountService) { }
   //@Input("discounter")
   //discounter: DiscountService;
 }
