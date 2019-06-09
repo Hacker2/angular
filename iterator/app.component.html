@@ -1,0 +1,5 @@
+<div (click)='changeArray()'>click me</div>
+
+<ng-template [myFor]="arr" let-item let-index='index'>
+  <div>{{item}} index is {{index}}</div>
+</ng-template>
