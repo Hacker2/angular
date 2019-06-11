@@ -1,0 +1,14 @@
+<div (click)='clk()'>click me</div>
+<a routerLink="/main" >main</a><br/>
+<a routerLink="/test" >test</a><br/>
+<a routerLink="/test2" >test2</a><br/>
+<a routerLink="/showparams/create" >params create</a><br/>
+<a routerLink="/showparams/edit" >params edit</a><br/>
+<a routerLink="/showparams/edit/5" >params edit 5</a><br/>
+<a routerLink="/showparams/edit/5/test" >params edit 5 test</a><br/>
+<a routerLink="/showparams/edit/id" >params edit id</a><br/>
+<a routerLink="/showparams/edit/mode" >params edit</a><br/>
+<a [routerLink]="['/showparams/edit', paramId]" >params edit paramId</a><br/>
+
+<router-outlet></router-outlet>
+
